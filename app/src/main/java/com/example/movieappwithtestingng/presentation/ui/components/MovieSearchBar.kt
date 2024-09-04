@@ -27,6 +27,8 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
@@ -72,6 +74,7 @@ fun MovieSearchBar(
                 .onFocusChanged { focusState ->
                     isFocused = focusState.isFocused
                 }
+                .semantics { contentDescription = "Movie Search Bar..." }
         )
 
         if (!isFocused && text.isEmpty()) {
